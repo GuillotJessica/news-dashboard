@@ -17,11 +17,7 @@ export const metadata = {
   metadataBase: new URL('https://nextjs-postgres-auth.vercel.app'),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={GeistSans.variable}>{children}</body>
