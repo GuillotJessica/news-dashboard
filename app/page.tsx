@@ -53,7 +53,7 @@ export default function Page() {
         </div>
         <div className="flex space-x-3">
           <Link
-            href="/protected"
+            href="/news"
             className="text-stone-400 underline transition-all hover:text-stone-200"
           >
             Protected Page
