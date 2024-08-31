@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { z } from 'zod';
 
 export default function Error({
   error,
@@ -28,4 +29,8 @@ export default function Error({
       </button>
     </main>
   );
+}
+export function ErrorMessage({ message }: { message?: string }) {
+  if (!z.string().min(1).safeParse(message)) return null;
+  return <p className="whitespace-pre-line text-center text-error">{message}</p>;
 }
