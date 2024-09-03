@@ -1,13 +1,9 @@
 'use client';
 
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import { categories } from '../(news)/[category]/page';
+import { useRouter } from 'next/navigation';
+import { categories } from '../_types/article';
 
 export const CategoryPicker = () => {
-  const pathName = usePathname();
-  const params = useParams();
-
-  console.log({ pathName, params });
   const router = useRouter();
   const categoriesCapitalizedOptions = categories.map((cat) => {
     const [firstLetter, ...restWord] = cat.split(''); // Type 'string' can only be iteration warning
@@ -19,16 +15,15 @@ export const CategoryPicker = () => {
     );
   });
   return (
-    <div className="md-max-w-80 flex w-full flex-col content-evenly justify-center">
-      <div>Select a news category</div>
+    <div className="content-centerm flex w-full flex-row justify-center">
       <select
         onChange={(e) => {
           if (e.target.value === 'all') router.push('/');
           else router.push('/' + e.target.value);
         }}
-        defaultValue={params.category ?? 'all'}
+        defaultValue={'all'}
         id="categories"
-        className="block gap-5 rounded-lg border border-gray-300 px-4 py-2.5 text-base text-gray-600 focus:outline-none"
+        className="block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base text-gray-600 focus:outline-none"
       >
         <option className="capitalize" value="all">
           All the news

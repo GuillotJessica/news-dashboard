@@ -10,3 +10,12 @@ export type Article = {
   publishedAt: string;
   content: string;
 };
+export const categories = [
+  'business',
+  'entertainment',
+  'general',
+  'health',
+  'science',
+  'sports',
+  'technology',
+];
