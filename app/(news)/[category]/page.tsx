@@ -1,5 +1,4 @@
 import { ArticlesList } from '@/app/_components/ArticlesList';
-import { CategoryPicker } from '@/app/_components/CategoryPicker';
 import { Article } from '@/app/_types/article';
 import { Metadata } from 'next';
 const { NEWS_API_URL, NEWS_API_KEY } = process.env;
@@ -39,7 +38,7 @@ export default async function Page({ params: { category } }: { params: { categor
   const data: { articles: Article[] } = await response.json();
   return (
     <main>
-      <CategoryPicker />
+      {/* <CategoryPicker /> */}
       <ArticlesList articles={data.articles} />
     </main>
   );
