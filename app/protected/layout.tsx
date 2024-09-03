@@ -1,6 +1,18 @@
 import { GeistSans } from 'geist/font/sans';
-import SignIn from '../_components/Sigin';
-import { CategoryPicker } from '../_components/CategoryPicker';
+import { signOut } from '../auth';
+
+function SignOut() {
+  return (
+    <form
+      action={async () => {
+        'use server';
+        await signOut();
+      }}
+    >
+      <button type="submit">Sign out</button>
+    </form>
+  );
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,9 +22,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a className="text-xl font-bold tracking-tight" href="#">
             News Dashboard
           </a>
-          <div className="flex-2 flex items-center gap-5 text-lg">
-            <CategoryPicker />
-            <SignIn />
+          <div className="flex-2 flex items-center">
+            <SignOut />
           </div>
         </nav>
         {children}

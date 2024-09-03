@@ -1,4 +1,4 @@
-import { Article } from '../_types/article';
+import { Article } from '../news/_types/article';
 import { ArticleCard } from './ArticleCard';
 
 export async function ArticlesList({ articles }: { articles: Article[] }) {

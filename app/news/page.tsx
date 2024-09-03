@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { ArticlesList } from './_components/ArticlesList';
+import { ArticlesList } from '../_components/ArticlesList';
 import { Article } from './_types/article';
 const { NEWS_API_URL, NEWS_API_KEY } = process.env;
 export const revalidate = 60;

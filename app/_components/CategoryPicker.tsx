@@ -1,12 +1,19 @@
 'use client';
 
-import { categories } from '../[category]/page';
-import { useParams, useRouter } from 'next/navigation';
+import { categories } from '../news/[category]/page';
+import { useRouter } from 'next/navigation';
 
 export const CategoryPicker = () => {
-  const params = useParams<{ category: string }>();
   const router = useRouter();
-
+  const categoriesCapitalizedOptions = categories.map((cat) => {
+    const [firstLetter, ...restWord] = cat.split(''); // Type 'string' can only be iteration warning
+    const catCapitalized = [firstLetter.toUpperCase(), ...restWord].join('');
+    return (
+      <option key={cat} value={cat}>
+        {catCapitalized + ' news'}
+      </option>
+    );
+  });
   return (
     <div className="content-centerm flex w-full flex-row justify-center">
       <select
@@ -21,11 +28,7 @@ export const CategoryPicker = () => {
         <option className="capitalize" value="all">
           All the news
         </option>
-        {categories.map((cat) => (
-          <option className="capitalize" key={cat} value={cat}>
-            {cat + ' news'}
-          </option>
-        ))}
+        {categoriesCapitalizedOptions}
       </select>
     </div>
   );

@@ -2,8 +2,7 @@
 
 import { Metadata } from 'next';
 import { Article } from '../_types/article';
-import { ArticlesList } from '../_components/ArticlesList';
-import { CategoryPicker } from '../_components/CategoryPicker';
+import { ArticlesList } from '../../_components/ArticlesList';
 const { NEWS_API_URL, NEWS_API_KEY } = process.env;
 
 export const dynamicParams = true;
