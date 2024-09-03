@@ -5,12 +5,7 @@ import { AuthError } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
-export const signInCredential = async (
-  _: {
-    message: string;
-  },
-  formData: FormData,
-) => {
+export const signInCredential = async (_: { message: string }, formData: FormData) => {
   try {
     const [email, password] = [formData.get('email') as string, formData.get('password') as string];
     const signUpSchema = z.object({
@@ -28,11 +23,14 @@ export const signInCredential = async (
           .join('\n'),
       };
     }
+
     await signIn('credentials', {
       redirectTo: '/protected',
       email,
       password,
     });
+
+    return { message: 'Sign-in successful!' };
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
