@@ -1,6 +1,5 @@
-// Next.js will invalidate the cache when a
-
 import { ArticlesList } from '@/app/_components/ArticlesList';
+import { CategoryPicker } from '@/app/_components/CategoryPicker';
 import { Article } from '@/app/_types/article';
 import { Metadata } from 'next';
 const { NEWS_API_URL, NEWS_API_KEY } = process.env;
@@ -39,8 +38,9 @@ export default async function Page({ params: { category } }: { params: { categor
   const response = await fetch(`${NEWS_API_URL}?category=${category}&apiKey=${NEWS_API_KEY}`);
   const data: { articles: Article[] } = await response.json();
   return (
-    <div>
+    <main>
+      <CategoryPicker />
       <ArticlesList articles={data.articles} />
-    </div>
+    </main>
   );
 }

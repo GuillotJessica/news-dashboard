@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             News Dashboard
           </a>
           <div className="flex-2 flex items-center gap-5 text-lg">
-            <CategoryPicker />
+            {/* <CategoryPicker /> */}
             <SignIn />
           </div>
         </nav>

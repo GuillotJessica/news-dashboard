@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { ArticlesList } from '../_components/ArticlesList';
 import { Article } from '../_types/article';
+import { CategoryPicker } from '@/app/_components/CategoryPicker';
+
 const { NEWS_API_URL, NEWS_API_KEY } = process.env;
 export const revalidate = 60;
 
@@ -11,5 +13,10 @@ export const metadata: Metadata = {
 export default async function Page() {
   const res = await fetch(`${NEWS_API_URL}?country=us&apiKey=${NEWS_API_KEY}`);
   const data: { articles: Article[] } = await res.json();
-  return <ArticlesList articles={data.articles} />;
+  return (
+    <main>
+      <CategoryPicker />
+      <ArticlesList articles={data.articles} />
+    </main>
+  );
 }
