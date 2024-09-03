@@ -1,7 +1,6 @@
-import { ArticlesList } from '@/app/_components/ArticlesList';
-import { Article, categories } from '@/app/_types/article';
+import { categories } from '@/app/_types/article';
 import { Metadata } from 'next';
-const { NEWS_API_URL, NEWS_API_KEY } = process.env;
+import ShowNews from '../DisplayNews';
 
 export const dynamicParams = true;
 
@@ -24,11 +23,5 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params: { category } }: { params: { category: string } }) {
-  const response = await fetch(`${NEWS_API_URL}?category=${category}&apiKey=${NEWS_API_KEY}`);
-  const data: { articles: Article[] } = await response.json();
-  return (
-    <main>
-      <ArticlesList articles={data.articles} />
-    </main>
-  );
+  return <ShowNews category={category} />;
 }
