@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import { Form } from 'app/form';
 import { SubmitButton } from 'app/submit-button';
-import { register } from '../login/actions/sigIn';
 import { useFormState } from 'react-dom';
+import { register } from '../actions/sigIn';
 import { ErrorMessage } from '../login/error';
 
 export default function Login() {

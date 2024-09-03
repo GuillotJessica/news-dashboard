@@ -29,7 +29,7 @@ export const signInCredential = async (
       };
     }
     await signIn('credentials', {
-      redirectTo: '/news',
+      redirectTo: '/protected',
       email,
       password,
     });

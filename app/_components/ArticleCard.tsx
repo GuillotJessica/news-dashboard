@@ -1,4 +1,4 @@
-import { Article } from '../news/_types/article';
+import { Article } from '../_types/article';
 
 export const getMonth = (parseDate: Date) => {
   const monthNumber = parseDate.getMonth();

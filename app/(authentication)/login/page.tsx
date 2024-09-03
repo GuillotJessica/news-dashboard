@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Form } from 'app/form';
 import { SubmitButton } from 'app/submit-button';
 import { useFormState } from 'react-dom';
-import { signInCredential } from './actions/sigIn';
 import { ErrorMessage } from './error';
+import { signInCredential } from '../actions/sigIn';
 
 export default function Login() {
   const [state, formAction] = useFormState(signInCredential, { message: '' });

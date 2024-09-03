@@ -1,7 +1,7 @@
 'use client';
 
-import { categories } from '../news/[category]/page';
 import { useRouter } from 'next/navigation';
+import { categories } from '../(root)/[category]/page';
 
 export const CategoryPicker = () => {
   const router = useRouter();
@@ -18,8 +18,8 @@ export const CategoryPicker = () => {
     <div className="content-centerm flex w-full flex-row justify-center">
       <select
         onChange={(e) => {
-          if (e.target.value === 'all') router.push('/news');
-          else router.push('/news/' + e.target.value);
+          if (e.target.value === 'all') router.push('/');
+          else router.push('/' + e.target.value);
         }}
         defaultValue={'all'}
         id="categories"
