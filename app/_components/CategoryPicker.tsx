@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { categories } from '../(root)/[category]/page';
+import { categories } from '../(news)/[category]/page';
 
 export const CategoryPicker = () => {
   const router = useRouter();
